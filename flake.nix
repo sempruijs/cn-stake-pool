@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    # add more inputs here
+    cardano-node.url = "github:intersectmbo/cardano-node";
   };
   # pass inputs to output function
   outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
