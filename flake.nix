@@ -8,20 +8,21 @@
     cardano-node.url = "github:intersectmbo/cardano-node";
   };
   # pass inputs to output function
-  outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
+  outputs = inputs@{ self, nixpkgs, flake-parts, cardano-node, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems =
-        [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
+        [ "x86_64-linux" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }:
         let
         in {
           packages = {
             # add build phases here
             # default = 
+            cardano-node = inputs.cardano-node.packages.${system}.cardano-node;
+            cardano-cli = inputs.cardano-node.packages.${system}.cardano-cli;
           };
           devShells = {
             default = pkgs.mkShell {
-              # add your developer tools here
               buildInputs = with pkgs; [ ponysay ];
             };
           };
