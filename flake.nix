@@ -17,12 +17,10 @@
               stable = lib.overrideToolchain self'.packages.rust-stable;
             };
           in {
-            packages = {
-              nixosConfigurations = {
-                hostName = nixpkgs.lib.nixosSystem {
-                  system = "x86_64-linux";
-                  modules = [ ./configuration.nix ];
-               };
+            nixosConfigurations = {
+              my-config = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                modules = [ ./configuration.nix ];
               };
             };
           };
