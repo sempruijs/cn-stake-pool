@@ -5,7 +5,7 @@
 
   outputs = { self, nixpkgs, ... }: {
     nixosConfigurations = {
-      hostName = nixpkgs.lib.nixosSystem {
+      cardano = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./configuration.nix ];
      };
