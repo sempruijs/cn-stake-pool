@@ -14,20 +14,18 @@
     interfaces = {
       eth0 = {
         ipv4.addresses = [
-          { address="116.203.222.234"; prefixLength=32; }
+          { address="135.181.111.253"; prefixLength=32; }
         ];
         ipv6.addresses = [
-          { address="2a01:4f8:1c1e:7475::1"; prefixLength=64; }
-{ address="fe80::9400:3ff:fe1b:e38d"; prefixLength=64; }
+          { address="2a01:4f9:c012:5cf4::1"; prefixLength=64; }
+{ address="fe80::9400:3ff:fe20:e996"; prefixLength=64; }
         ];
         ipv4.routes = [ { address = "172.31.1.1"; prefixLength = 32; } ];
         ipv6.routes = [ { address = "fe80::1"; prefixLength = 128; } ];
       };
-                                                                                
     };
   };
   services.udev.extraRules = ''
-    ATTR{address}=="96:00:03:1b:e3:8d", NAME="eth0"
-                                                                                
+    ATTR{address}=="96:00:03:20:e9:96", NAME="eth0"
   '';
 }
