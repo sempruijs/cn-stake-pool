@@ -15,7 +15,7 @@
   ];
 
   systemd.services.cardano-node = {
-    enable = true;
+    enable = false;
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     description = "Cardano node";
