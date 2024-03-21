@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{  config, pkgs, inputs, ...}:
+{
   imports = [
     ./hardware-configuration.nix
     ./networking.nix # generated at runtime by nixos-infect
@@ -7,15 +8,17 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    curl
-    helix
-    git
+    pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    pkgs.wget
+    pkgs.curl
+    pkgs.helix
+    pkgs.git
+    pkgs.neofetch
+    # inputs.cardano-node.packages.x86_64-linux.cardano-cli
   ];
 
   systemd.services.cardano-node = {
-    enable = false;
+    enable = true;
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     description = "Cardano node";
