@@ -20,7 +20,7 @@
     after = [ "network.target" ];
     description = "Cardano node";
     serviceConfig = {
-      ExecStart = "${pkgs.nix}/bin/nix run github:intersectmbo/cardano-node -- run --topology /home/cardano/cn-stake-pool/mainnet/topology.json --database-path /home/cardano/cn-stake-pool/mainnet/db --socket-path //home/cardano/cn-stake-pool/mainnet/node.socket --port 3001 --config /home/cardano/cn-stake-pool/mainnet/config.json";
+      ExecStart = "${pkgs.nix}/bin/nix run github:intersectmbo/cardano-node -- run --topology /cn-stake-pool/testnet/topology.json --database-path /cn-stake-pool/testnet/db --socket-path /cn-stake-pool/testnet/node.socket --port 3001 --config /cn-stake-pool/testnet/config.json";
       # Restart = "on-failure";
       RestartSec = 5;
       StartLimitBurst = 3;
