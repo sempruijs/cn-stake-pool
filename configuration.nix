@@ -16,6 +16,7 @@
     pkgs.git
     pkgs.neofetch
     inputs.cardano-node.packages.x86_64-linux.cardano-cli
+    inputs.cardano-node.packages.x86_64-linux.cardano-node
   ];
 
   systemd.services.cardano-node = {
