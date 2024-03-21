@@ -2,3 +2,6 @@
 result
 mainnet/db/
 preview/db/
+testnet/db/
+networking.nix
+hardware-configuration.nix

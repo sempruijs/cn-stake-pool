@@ -1,6 +1,7 @@
 {  config, pkgs, inputs, ...}:
 {
   imports = [
+    # this should be moved into the repository from /etc/nixos
     ./hardware-configuration.nix
     ./networking.nix # generated at runtime by nixos-infect
   ];
