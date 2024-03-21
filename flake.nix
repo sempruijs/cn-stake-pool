@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs, cardano-node, ... }@inputs: {
     nixosConfigurations = {
-      cardano = nixpkgs.lib.nixosSystem {
+      relay = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [ 
