@@ -1,7 +1,6 @@
 {  config, pkgs, inputs, ...}:
 {
   imports = [
-    # this should be moved into the repository from /etc/nixos
     ./hardware-configuration.nix
     ./networking.nix # generated at runtime by nixos-infect
   ];
@@ -25,7 +24,7 @@
     after = [ "network.target" ];
     description = "Cardano node";
     serviceConfig = {
-      ExecStart = "${pkgs.nix}/bin/nix run github:intersectmbo/cardano-node -- run --topology /cn-stake-pool/testnet/topology.json --database-path /cn-stake-pool/testnet/db --socket-path /cn-stake-pool/testnet/node.socket --port 3001 --config /cn-stake-pool/testnet/config.json";
+      ExecStart = "/run/current-system/sw/bin/cardano-node run --topology /cn-stake-pool/testnet/topology.json --database-path /cn-stake-pool/testnet/db --socket-path /cn-stake-pool/testnet/node.socket --port 3001 --config /cn-stake-pool/testnet/config.json";
       # Restart = "on-failure";
       RestartSec = 5;
       StartLimitBurst = 3;
